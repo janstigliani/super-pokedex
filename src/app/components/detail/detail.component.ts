@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pokemon } from '../../model/pokemon';
 
 @Component({
   selector: 'app-detail',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent {
-
+  @Input() pokemon!: Pokemon;
 }
