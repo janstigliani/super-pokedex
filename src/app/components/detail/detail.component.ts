@@ -11,3 +11,6 @@ import { Pokemon } from '../../model/pokemon';
 export class DetailComponent {
   @Input() pokemon!: Pokemon;
 }
+
+//trasformare ogni poke-card in button, al click attivano getPokemonById e settano la variabile di classe this.pokemon nel service
+//details prende il service, recupera this.pokemon e ne displaya le info.
