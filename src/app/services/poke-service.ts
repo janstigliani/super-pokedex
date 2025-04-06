@@ -10,10 +10,12 @@ export class PokeService {
   static POKEMON_URL = `pokemon/`
   limit: number
   offset: number
+  pokemon: Pokemon | null
 
   constructor() {
-    this.limit = 20;
+    this.limit = 1302;
     this.offset = 0;
+    this.pokemon = null;
   }
 
   getAllPokemon(): Promise<Pokemon[]> {
@@ -71,5 +73,10 @@ export class PokeService {
     } else {
       this.offset = 1302 - this.limit;
     }
+  }
+
+  selectPoke(pokemon:Pokemon){
+    this.pokemon = pokemon;
+    return this.pokemon;
   }
 }

@@ -1,1 +1,27 @@
-<p>detail works!</p>
+<section class="detail">
+
+    <div class="sprite-container">
+        <img class="sprite-big" [src]="pokemon?.sprites" alt="Exterior photo of {{ pokemon?.name }}" />
+    </div>
+
+    <div class="info">
+        <div>
+            <span class="poke-index">{{ pokemon?.id }}</span>
+            <span class="poke-name">{{ pokemon?.name }}</span>
+        </div>
+        
+        <div>
+            <span class="poke-types" *ngFor="let types of pokemon?.types">{{types}}</span>
+        </div>
+
+        <div>
+            <span class="poke-height">height: {{ pokemon?.height }}</span>
+            <span class="poke-weight">weight: {{ pokemon?.weight }}</span>
+        </div>
+
+        <span class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Blanditiis aliquid soluta laboriosam facere vel beatae! 
+            Labore vitae sit inventore fuga ea dignissimos, ipsum obcaecati, 
+            quo expedita natus blanditiis dicta! Expedita.</span>
+    </div>
+</section>

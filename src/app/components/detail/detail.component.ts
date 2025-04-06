@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { Pokemon } from '../../model/pokemon';
+import { PokeService } from '../../services/poke-service';
 
 @Component({
   selector: 'app-detail',
@@ -9,8 +10,16 @@ import { Pokemon } from '../../model/pokemon';
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent {
-  @Input() pokemon!: Pokemon;
-}
+  service: PokeService = inject(PokeService);
+  pokemon: Pokemon | null;
 
-//trasformare ogni poke-card in button, al click attivano getPokemonById e settano la variabile di classe this.pokemon nel service
-//details prende il service, recupera this.pokemon e ne displaya le info.
+  constructor() {
+    this.pokemon = this.service.pokemon;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    console.log('Click detected:', event);
+    this.pokemon = this.service.pokemon;
+  }
+}

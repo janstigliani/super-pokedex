@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PokeService } from '../../services/poke-service';
 
 @Component({
   selector: 'app-footer',
@@ -8,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  service:PokeService = inject(PokeService)
 
+  nextPage() {
+    this.service.nextPage();
+    
+  }
+
+  prevPage() {
+    this.service.previousPage();
+    
+  }
 }
